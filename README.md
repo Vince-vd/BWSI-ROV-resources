@@ -9,7 +9,7 @@ Before you begin, make sure your Linux distribution is up-to-date and has \`git\
 ```bash
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install git python3 python3-dev python3-opencv python3-wxgtk4.0 python3-pip python3-matplotlib python3-lxml python3-yaml
+sudo apt-get install git python3 python3-dev python3-pip
 pip3 install future
 ```
 
@@ -48,7 +48,15 @@ echo "export PATH=$PATH:$HOME/ardupilot/Tools/autotest" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-## Step 5a: Run SITL compatible with BlueSim
+## Step 5: Setup the sim for first use
+The ardupilot instructions suggest running the sim with the -w flag on first execution to load all default values. Once everything is loaded, you can exit with `ctrl+c`
+```bash
+sim_vehicle.py -w
+```
+
+sim_vehicle.py is located in the ardupilot/Tools/autotest folder
+
+## Step 6a: Run SITL compatible with BlueSim
 
 You're now ready to run SITL. For example, to simulate an ArduSub, you can use the following commands:
 
@@ -66,7 +74,7 @@ Download the correct BlueSim client for your system from the [latest releases](h
 
 Once the download is complete, extract the files and navigate to the extracted directory to execute the file.
 
-## Step 5b: Run SITL standalone with QGroundcontrol
+## Step 6b: Run SITL standalone with QGroundcontrol
 
 In order to run the sim standalone with QGroundcontrol, the frame needs to be changed to vector. (I am not sure why)
 It will now be controllable from QGroundcontrol, but not connected to bluesim at all.
