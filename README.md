@@ -1,3 +1,6 @@
+# SITL documentation
+[You can find the ardupilot SITL documentation here](https://ardupilot.org/dev/docs/sitl-simulator-software-in-the-loop.html)
+
 # ArduPilot SITL Setup Guide
 
 This guide provides the steps to setup the ArduPilot's Software in the Loop (SITL) environment on Ubuntu Linux.
