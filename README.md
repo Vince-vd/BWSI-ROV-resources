@@ -19,6 +19,7 @@ pip3 install future
 ## Step 1: Clone the ArduPilot repository
 
 ```bash
+cd ~/
 git clone https://github.com/ArduPilot/ardupilot.git
 cd ardupilot
 ```
@@ -52,37 +53,47 @@ source ~/.bashrc
 ```
 
 ## Step 5: Setup the sim for first use
-The ardupilot instructions suggest running the sim with the -w flag on first execution to load all default values. Once everything is loaded, you can exit with `ctrl+c`
+The ardupilot instructions suggest running the sim with the -w flag on first execution to load all default values. Once everything is loaded, you can exit with `ctrl+c`.
+Make sure to run this from the `ArduSub` folder
 ```bash
+cd ~/ardupilot/ArduSub/
 sim_vehicle.py -w
 ```
 
-sim_vehicle.py is located in the ardupilot/Tools/autotest folder
+Note: sim_vehicle.py is located in the ardupilot/Tools/autotest folder
 
-## Step 6a: Run SITL compatible with BlueSim
+## Step 6: Run SITL simulation with QGroundcontrol
 
-You're now ready to run SITL. For example, to simulate an ArduSub, you can use the following commands:
+### Find your laptop hostname or ip address
+The simulation will be running on your Raspberry Pi, but QGroundcontrol needs to be launched from your laptop.
+For the sim to be able to find your laptop, you'll have to specify either the name of your laptop, or the ip address of your laptop.
+- [Click here](https://support.apple.com/guide/mac-help/find-your-computers-name-and-network-address-mchlp1177/mac) for instructions on **MAC**
+- [Click here](https://www.montana.edu/uit/ip/find-info-win.html) for **Windows**
+- For **Linux** simply type `hostname` in your terminal, and the hostname will be returned
+
+### Launch the simulator
+
+In the command below, make sure to change the the `<laptop-name/ip>` section with the correct name or ip.
 
 ```bash
 cd ArduSub
-sim_vehicle.py --vehicle=ArduSub --frame=json --aircraft="bwsibot" -L RATBeach --out=udp:0.0.0.0:14550
+sim_vehicle.py --vehicle=ArduSub --aircraft="bwsibot" -L RATBeach --out=udp:<laptop-name/ip>:14550
 ```
 
-### Next, launch QGroundcontrol
-You can download it from the [QGroundControl's official download page](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html).
+### Finally, launch QGroundcontrol
+If you haven't done so yet, you can download it from the [QGroundControl's official download page](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html).
 
-### Finally, Download and Run BlueSim
+## Optional: running SITL with the 3D bluesim simulator
 
 Download the correct BlueSim client for your system from the [latest releases](https://github.com/bluerobotics/bluesim/releases/tag/latest) on their GitHub page. 
 
 Once the download is complete, extract the files and navigate to the extracted directory to execute the file.
 
-## Step 6b: Run SITL standalone with QGroundcontrol
+### Step 6a: Run SITL compatible with BlueSim
 
-In order to run the sim standalone with QGroundcontrol, the frame needs to be changed to vector. (I am not sure why)
-It will now be controllable from QGroundcontrol, but not connected to bluesim at all.
+You're now ready to run SITL. For example, to simulate our ROV, we will use the following commands:
 
 ```bash
-cd ArduSub
-sim_vehicle.py --vehicle=ArduSub --frame=vector --aircraft="bwsibot" -L RATBeach --out=udp:0.0.0.0:14550
+cd ~/ardupilot/ArduSub
+sim_vehicle.py --vehicle=ArduSub --frame=json --aircraft="bwsibot" -L RATBeach --out=udp:0.0.0.0:14550
 ```
