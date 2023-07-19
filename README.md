@@ -48,8 +48,8 @@ When the script finishes execution, reload the path:
 ## Step 4: Add the \`Tools/autotest\` directory to your PATH
 
 ```bash
-echo "export PATH=$PATH:$HOME/ardupilot/Tools/autotest" >> ~/.bashrc
-source ~/.bashrc
+echo "export PATH=$PATH:$HOME/ardupilot/Tools/autotest" >> ~/.zshrc
+source ~/.zshrc
 ```
 
 ## Step 5: Setup the sim for first use
