@@ -20,7 +20,7 @@ pip3 install future
 
 ```bash
 cd ~/
-git clone https://github.com/ArduPilot/ardupilot.git
+git clone https://github.com/ArduPilot/ardupilot.git --depth 1
 cd ardupilot
 ```
 
