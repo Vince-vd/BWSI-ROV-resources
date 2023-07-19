@@ -73,11 +73,11 @@ For the sim to be able to find your laptop, you'll have to specify either the na
 
 ### Launch the simulator
 
-In the command below, make sure to change the the `<laptop-name/ip>` section with the correct name or ip.
+In the command below, make sure to change the the `<hostname>` section with the correct name or ip.
 
 ```bash
 cd ArduSub
-sim_vehicle.py --vehicle=ArduSub --aircraft="bwsibot" -L RATBeach --out=udp:<laptop-name/ip>:14550
+sim_vehicle.py --vehicle=ArduSub --aircraft="bwsibot" -L RATBeach --out=udp:<hostname>:14550
 ```
 
 ### Finally, launch QGroundcontrol
